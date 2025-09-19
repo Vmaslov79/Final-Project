@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     
     - name: Build Docker image
-      run: docker buildx build -t vladstep2/server-test-backend:v1.0.0 -f ./app/Dockerfile ./app
+      run: docker buildx build -t vladstep2/server-test-backend:v1.0.0 -f ./app/Dockerfile ./app #if you want to avoid error when building, use static name, not avariables
 
     
     - name: Push Docker image
