@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     
     - name: Build Docker image
-      run:
+      run: |
         cd app
         docker build -t ${{ secrets.DOCKER_USERNAME }}/server-test-backend:v1.0.0 ./app
     
