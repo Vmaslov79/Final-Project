@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "danit" {
 
   vpc_config {
     security_group_ids = [aws_security_group.danit-cluster.id]
-    subnet_ids         = local.subnets_ids
+    subnet_ids         = var.subnets_ids
   }
 
   depends_on = [

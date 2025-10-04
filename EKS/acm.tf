@@ -24,5 +24,4 @@ module "acm" {
     var.tags,
     { Name = "${var.name}-eks" }
   )
-  
 }

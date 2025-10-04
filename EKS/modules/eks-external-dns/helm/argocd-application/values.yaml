@@ -1,5 +1,0 @@
-# nameOverride: "vlad-tf-final-step"
-# fullnameOverride: "vlad-tf-final-step"
-# serviceAccount:
-#   annotations:
-#     eks.amazonaws.com/role-arn: "arn:aws:iam::013372624309:role/external-dns-irsa-external-dns"

@@ -2,7 +2,7 @@ resource "aws_eks_node_group" "danit" {
   cluster_name    = aws_eks_cluster.danit.name
   node_group_name = var.name
   node_role_arn   = aws_iam_role.danit-node.arn
-  subnet_ids      = local.subnets_ids
+  subnet_ids = var.subnets_ids
 
   scaling_config {
     desired_size = 1
@@ -10,11 +10,10 @@ resource "aws_eks_node_group" "danit" {
     min_size     = 1
   }
 
-  #ami_type       = "AL2_x86_64"
   instance_types = ["t3.medium"]
 
   labels = {
-    "node-type" : "tests"
+    "node-type" : "vlad"
   }
 
   depends_on = [
@@ -27,3 +26,5 @@ resource "aws_eks_node_group" "danit" {
     { Name = "${var.name}-node-group" }
   )
 }
+
+

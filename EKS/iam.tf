@@ -72,15 +72,18 @@ POLICY
   )
 }
 
+
+
+#Як що помилка при створенні кластера про те що нема доступу до ListHostedZones й ListResourceRecordSets
+#Значит ви не авторизувались з MFA
 resource "aws_iam_policy" "secrets_policy" {
-  name        = "GetSecrets1"
+  name        = "${var.name}-GetSecrets"
   path        = "/"
   description = "Policy to read aws secrets"
 
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
-   
       {
         "Sid" : "AllowListHostedZones",
         "Effect" : "Allow",

@@ -24,7 +24,7 @@ resource "helm_release" "nginx_ingress" {
     value = "internet-facing"
   }
   set {
-   name = "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"
+    name = "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"
     value = "nlb"
   }
   set {
@@ -36,4 +36,3 @@ resource "helm_release" "nginx_ingress" {
     value = "http"
   }
 }
-

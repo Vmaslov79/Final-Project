@@ -2,15 +2,18 @@
 region = "eu-central-1"
 
 # General for all infrastructure
+# This is the name prefix for all infra components
 name = "vlad"
-cluster_identity_oidc_issuer     = "https://oidc.eks.eu-central-1.amazonaws.com/id/A092A0A4BE50D61640CC4BAE2503E000"
-cluster_identity_oidc_issuer_arn = "arn:aws:iam::013372624309:oidc-provider/oidc.eks.eu-central-1.amazonaws.com/id/A092A0A4BE50D61640CC4BAE2503E000"
+
+
+vpc_id = "vpc-0bb5f828fddfbf9e7"
+subnets_ids = ["subnet-025cd4585ef90536e", "subnet-04942409f4d92aa7e", "subnet-0c9c5d9a519bd2253"]
 
 
 tags = {
-  Environment = "vlad-student"
+  Environment = "Vlad-step"
   TfControl   = "true"
 }
 
-zone_name        = "devops8.test-danit.com"
-route53_zone_id  = "Z09677011LE4DBU3U1XY5"
+
+zone_name = "devops8.test-danit.com"

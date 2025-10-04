@@ -1,7 +1,7 @@
 resource "aws_security_group" "danit-cluster" {
   name        = "${var.name}-eks-sg"
   description = "Cluster communication with worker nodes"
-  vpc_id      = aws_vpc.main.id
+  vpc_id = var.vpc_id
 
   egress {
     from_port   = 0
@@ -22,11 +22,11 @@ data "http" "workstation-external-ip" {
 
 # Override with variable or hardcoded value if necessary
 locals {
-  workstation_external_cidr = "${chomp(data.http.workstation-external-ip.response_body)}/32"
+  workstation-external-cidr = "${chomp(data.http.workstation-external-ip.response_body)}/32"
 }
 
 resource "aws_security_group_rule" "kubeedge-cluster-ingress-workstation-https" {
-  cidr_blocks       = [local.workstation_external_cidr]
+  cidr_blocks       = [local.workstation-external-cidr]
   description       = "Allow workstation to communicate with the cluster API Server"
   from_port         = 443
   protocol          = "tcp"
@@ -34,3 +34,4 @@ resource "aws_security_group_rule" "kubeedge-cluster-ingress-workstation-https" 
   to_port           = 443
   type              = "ingress"
 }
+
