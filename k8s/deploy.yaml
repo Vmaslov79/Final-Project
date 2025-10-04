@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: vladstep2/server-test-backend:1.1.0
+        image: vladstep2/server-test-backend:1.0.0
         ports:
         - containerPort: 8080
         resources:
