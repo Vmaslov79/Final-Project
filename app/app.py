@@ -2,13 +2,18 @@ import socket
 from http.server import BaseHTTPRequestHandler, HTTPServer
 class SimpleHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/':
-            self.send_response(200)
-            self.end_headers()
-            self.wfile.write(b'OK')
-        else:
-            self.send_response(404)
-            self.end_headers()
+      if self.path == '/':
+        pod_ip = get_pod_ip()
+        response = f"OK\nPod IP: {pod_ip}".encode()
+        self.send_response(200)
+        self.send_header('Content-Type', 'text/plain')
+        self.send_header('Content-Length', str(len(response)))
+        self.end_headers()
+        self.wfile.write(response)
+      else:
+        self.send_response(404)
+        self.end_headers()
+
 def get_pod_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
