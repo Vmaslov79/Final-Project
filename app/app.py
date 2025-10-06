@@ -5,7 +5,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
         if self.path == '/':
             self.send_response(200)
             self.end_headers()
-            self.wfile.write(b'OK')
+            self.wfile.write(b'OK1')
         else:
             self.send_response(404)
             self.end_headers()
